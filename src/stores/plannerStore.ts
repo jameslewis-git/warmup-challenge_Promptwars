@@ -39,8 +39,8 @@ export const usePlannerStore = create<PlannerState>((set, get) => ({
     try {
       const plan = await generateMealPlan(get().preferences);
       set({ mealPlan: plan, budgetStatus: plan.budgetStatus, isLoading: false });
-    } catch {
-      set({ error: "Couldn't generate your meal plan. Please try again.", isLoading: false });
+    } catch (err: any) {
+      set({ error: err.message || "Couldn't generate your meal plan. Please try again.", isLoading: false });
     }
   },
   clearError: () => set({ error: null }),

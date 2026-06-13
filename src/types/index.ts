@@ -22,6 +22,7 @@ export interface Meal {
 export type BudgetStatus = "within" | "warning" | "exceeded";
 
 export interface MealPlan {
+  id?: string;
   breakfast: Meal;
   lunch: Meal;
   dinner: Meal;
